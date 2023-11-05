@@ -2,7 +2,16 @@
 
 namespace App\Services\Subscriptions;
 
+use App\Models\Subscription;
+
 interface SubscriptionServiceInterface
 {
-    public function createSubscribe(array $data);
+
+    /**
+     * Create a new post.
+     *
+     * @param  array  $data  The post-data.
+     * @return Subscription
+     */
+    public function createSubscribe(array $data): Subscription;
 }

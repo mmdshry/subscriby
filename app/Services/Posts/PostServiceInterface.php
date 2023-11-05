@@ -2,7 +2,15 @@
 
 namespace App\Services\Posts;
 
+use App\Models\Post;
+
 interface PostServiceInterface
 {
-    public function createPost(array $data);
+    /**
+     * Create a new post.
+     *
+     * @param  array  $data  The post-data.
+     * @return Post
+     */
+    public function createPost(array $data): Post;
 }
