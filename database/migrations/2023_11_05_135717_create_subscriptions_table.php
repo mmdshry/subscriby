@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subscriptions', static function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('website_id')->constrained()->cascadeOnDelete();
+            $table->timestamp('expired_at')->nullable();
             $table->timestamps();
         });
     }

@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', static function (Blueprint $table) {
-            $table->uuid('id');
-            
+            $table->uuid('id')->primary();
+            $table->foreignUuid('website_id')->constrained()->cascadeOnDelete();
+            $table->string('title')->index();
+            $table->longText('content');
             $table->timestamps();
         });
     }
