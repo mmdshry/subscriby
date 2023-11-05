@@ -2,10 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
+
+    protected $fillable = ['title', 'content', 'website_id'];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class, 'website_id');
+    }
 }
