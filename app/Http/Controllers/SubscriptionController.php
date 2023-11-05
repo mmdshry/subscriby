@@ -2,64 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subscription;
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
+use App\Http\Requests\SubscriptionRequest;
+use App\Services\Subscriptions\SubscriptionService;
+use Exception;
 
 class SubscriptionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct(protected SubscriptionService $subscriptionService)
     {
-        //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function createSubscription(SubscriptionRequest $request)
     {
-        //
-    }
+        try {
+            $this->subscriptionService->createSubscribe($request->validated());
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Subscription $subscription)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Subscription $subscription)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Subscription $subscription)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Subscription $subscription)
-    {
-        //
+            return response()->json(['message' => 'Subscription created successfully'], 201);
+        } catch (Exception) {
+            return response()->json(['error' => 'An unexpected error occurred'], 500);
+        }
     }
 }
