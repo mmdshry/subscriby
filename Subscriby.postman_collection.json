@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "d1c87a08-ba32-4882-8b2b-f35c4b583632",
+		"name": "Subscriby",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5653610"
+	},
+	"item": [
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/api/posts/create?website_id=9a8a78c7-2aa1-4db7-9357-fc9c7bf539ff&title=Test&content=hi contetn",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"create"
+					],
+					"query": [
+						{
+							"key": "website_id",
+							"value": "9a8a78c7-2aa1-4db7-9357-fc9c7bf539ff"
+						},
+						{
+							"key": "title",
+							"value": "Test"
+						},
+						{
+							"key": "content",
+							"value": "hi contetn"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Subscription",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/api/subscription/create?website_id=9a8a78c7-2a12-4ed3-958f-42e1ae92fd24&user_id=9a8a78c7-2232-4f84-90e2-a179a7c3c068",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"subscription",
+						"create"
+					],
+					"query": [
+						{
+							"key": "website_id",
+							"value": "9a8a78c7-2a12-4ed3-958f-42e1ae92fd24"
+						},
+						{
+							"key": "user_id",
+							"value": "9a8a78c7-2232-4f84-90e2-a179a7c3c068"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
